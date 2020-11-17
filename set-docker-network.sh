@@ -53,12 +53,3 @@ echo -e "{\"ip\":\"$OUTPUT_NIC_IP_ADDRESS\"}" > /etc/docker/daemon.json
 echo -e "New docker daemon config:"
 cat /etc/docker/daemon.json
 echo -e "\n"
-
-# Restart the Docker daemon so it uses the correct network settings
-# Note, I do this as I found Docker containers often won't be able
-# to connect out if any changes to the network are made while it's     
-# running
-
-echo -e "Restarting Docker"
-systemctl restart docker
-echo -e "Done"
