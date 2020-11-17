@@ -41,13 +41,6 @@ echo -e "\n"
 ip route flush cache
 echo -e "Flushed route cache\n"
 
-# Manage masquerading
-iptables -t nat -D POSTROUTING 1
-iptables -t nat -A POSTROUTING -s $DOCKER_CIDR_FROM -j SNAT --to-source $OUTPUT_NIC_IP_ADDRESS
-echo -e "Masquerade traffic from $DOCKER_CIDR_FROM using ip address: $OUTPUT_NIC_IP_ADDRESS"
-iptables -t nat -vnL POSTROUTING
-echo -e "\n"
-
 # Set default ip address to which docker daemon should bind to --> $OUTPUT_NIC_IP_ADDRESS
 echo -e "{\"ip\":\"$OUTPUT_NIC_IP_ADDRESS\"}" > /etc/docker/daemon.json
 echo -e "New docker daemon config:"
