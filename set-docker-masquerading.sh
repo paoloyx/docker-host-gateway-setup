@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo -e "Usage \n\n ./set-docker-masquerading.sh [OUTPUT_NIC_DEV] [OUTPUT_NIC_IP_ADDRESS] \n\n Example: ./set-docker-network.sh 172.17.0.0/16 enp0s8 192.168.1.36"
+    echo -e "Usage \n\n ./set-docker-masquerading.sh [DOCKER_CIDR_FROM] [OUTPUT_NIC_IP_ADDRESS] \n\n Example: ./set-docker-masquerading.sh 172.17.0.0/16 192.168.1.36"
     exit 1
 fi
 
