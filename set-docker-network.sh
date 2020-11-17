@@ -21,7 +21,7 @@ echo -e "Cleaned ip routes"
 
 # Create a new routing table just for docker
 echo "1 docker" >> /etc/iproute2/rt_tables
-echo "Added new 'docker' routing table"
+echo "Added new 'docker' routing table\n"
 
 # Add a rule stating any traffic from the docker0 bridge interface should use 
 # the newly added docker routing table
