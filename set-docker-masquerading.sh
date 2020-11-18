@@ -6,7 +6,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 DOCKER_CIDR_FROM=$1
-OUTPUT_NIC_IP_ADDRESS=$3
+OUTPUT_NIC_IP_ADDRESS=$2
 
 # Manage masquerading
 iptables -t nat -D POSTROUTING 1
