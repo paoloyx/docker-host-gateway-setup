@@ -9,7 +9,7 @@ DOCKER_CIDR_FROM=$1
 OUTPUT_NIC_IP_ADDRESS=$2
 
 # Manage masquerading
-iptables -t nat -D POSTROUTING 1
+iptables -t nat -D POSTROUTING -s $DOCKER_CIDR_FROM -j SNAT --to-source $OUTPUT_NIC_IP_ADDRESS
 iptables -t nat -A POSTROUTING -s $DOCKER_CIDR_FROM -j SNAT --to-source $OUTPUT_NIC_IP_ADDRESS
 echo -e "Masquerade traffic from $DOCKER_CIDR_FROM using ip address: $OUTPUT_NIC_IP_ADDRESS"
 iptables -t nat -vnL POSTROUTING
