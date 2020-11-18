@@ -42,7 +42,7 @@ ip route flush cache
 echo -e "Flushed route cache\n"
 
 # Set default ip address to which docker daemon should bind to --> $OUTPUT_NIC_IP_ADDRESS
-echo -e "{\"ip\":\"$OUTPUT_NIC_IP_ADDRESS\"}" > /etc/docker/daemon.json
-echo -e "New docker daemon config:"
-cat /etc/docker/daemon.json
-echo -e "\n"
+# echo -e "{\"ip\":\"$OUTPUT_NIC_IP_ADDRESS\"}" > /etc/docker/daemon.json
+# echo -e "New docker daemon config:"
+# cat /etc/docker/daemon.json
+# echo -e "\n"
