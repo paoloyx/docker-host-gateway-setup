@@ -11,12 +11,12 @@ OUTPUT_NIC_IP_ADDRESS=$3
 
 # clean up previous resources
 echo -e "Cleaning resources on startup"
-sed -i -e 's/1 docker//g' -e '/^$/d' /etc/iproute2/rt_tables
-echo -e "Cleaned /etc/iproute2/rt_tables file\n"
 while $(ip rule list | grep -q "$DOCKER_CIDR_FROM lookup docker"); do ip rule del from $DOCKER_CIDR_FROM lookup docker; done
 echo -e "Cleaned ip rules"
 ip route del default via $OUTPUT_NIC_IP_ADDRESS dev $OUTPUT_NIC_DEV table docker
 echo -e "Cleaned ip routes"
+sed -i -e 's/1 docker//g' -e '/^$/d' /etc/iproute2/rt_tables
+echo -e "Cleaned /etc/iproute2/rt_tables file\n"
 
 
 # Create a new routing table just for docker
